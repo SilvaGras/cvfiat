@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="converter-container">
+        <h1>Cryptocurrency Converter</h1>
+        <form action="converter.php" method="POST">
+            <div class="form-group">
+                <label for="crypto_amount">Amount:</label>
+                <input type="number" name="amount" id="crypto_amount" placeholder="Enter amount" required>
+            </div>
+
+            <div class="form-group">
+                <label for="crypto_from">From Cryptocurrency:</label>
+                <select name="from_currency" id="crypto_from" required>
+                    <option value="bitcoin">Bitcoin (BTC)</option>
+                    <option value="ethereum">Ethereum (ETH)</option>
+                    <option value="litecoin">Litecoin (LTC)</option>
+                    <option value="ripple">Ripple (XRP)</option>
+                    <option value="dogecoin">Dogecoin (DOGE)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="crypto_to">To Currency:</label>
+                <select name="to_currency" id="crypto_to" required>
+                    <option value="usd">US Dollar (USD)</option>
+                    <option value="eur">Euro (EUR)</option>
+                    <option value="bitcoin">Bitcoin (BTC)</option>
+                    <option value="ethereum">Ethereum (ETH)</option>
+                    <option value="litecoin">Litecoin (LTC)</option>
+                    <option value="ripple">Ripple (XRP)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="convert-button">Convert</button>
+        </form>
+
+        <div class="result">
+            <?php if (isset($_GET['result'])): ?>
+                <p>Converted Amount: <?php echo htmlspecialchars($_GET['result']); ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
+</body>
+</html>
